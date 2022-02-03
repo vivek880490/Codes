@@ -4,7 +4,7 @@ class Solution {
         
         
        HashMap<Character,String>map=new HashMap<>();
-        HashMap<String,Boolean>used=new HashMap<>();
+        //HashMap<String,Boolean>used=new HashMap<>();
         
         String words[]=s.split(" ");
         
@@ -13,21 +13,17 @@ class Solution {
         
         for(int i=0;i<pattern.length();i++){
             char ch=pattern.charAt(i);
-           if(map.containsKey(ch)==false){
-               if(used.containsKey(words[i])==true){
-                   return false;
-               }
-               else{
-                   used.put(words[i],true);
-                   map.put(ch,words[i]);
-               }
-               
-           }
+          if(map.containsKey(ch)==true){
+              String word=map.get(ch);
+              if(word.equals(words[i])==false){
+                  return false;
+              }
+          }
             else{
-                String word=map.get(ch);
-                if(word.equals(words[i])==false){
+                if(map.containsValue(words[i])){
                     return false;
                 }
+                map.put(ch,words[i]);
             }
         }
         
