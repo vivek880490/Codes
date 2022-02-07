@@ -13,23 +13,33 @@ class Solution {
         
         if(head==null || head.next==null) return head;
         
-        ListNode dummy=new ListNode(-1);
-        ListNode itr=dummy;
+        ListNode d=new ListNode(-1);
+        
+        ListNode itr=d;
         itr.next=head;
+        
         ListNode cur=head.next;
         
         while(cur!=null){
+            
             boolean flag=false;
             while(cur!=null && itr.next.val==cur.val){
-                flag=true;
                 cur=cur.next;
+                 flag=true;
             }
             
-            if(flag==true) itr.next=cur;
-            else itr=itr.next;
+            if(flag==true){
+                itr.next=cur;
+            }
+            else{
+                itr=itr.next;
+            }
+            
             if(cur!=null) cur=cur.next;
+            
+            
         }
-        return dummy.next;
+        return d.next;
         
     }
 }
