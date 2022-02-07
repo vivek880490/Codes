@@ -1,34 +1,18 @@
 class Solution {
     public char findTheDifference(String s, String t) {
         
-        HashMap<Character,Integer>maps=new HashMap<>();
-        HashMap<Character,Integer>mapt=new HashMap<>();
+        char sa[]=s.toCharArray();
+        char ta[]=t.toCharArray();
+        
+        Arrays.sort(sa);
+        Arrays.sort(ta);
         
         for(int i=0;i<s.length();i++){
-            char ch=s.charAt(i);
-            maps.put(ch,maps.getOrDefault(ch,0)+1);
-        }
-        
-         for(int i=0;i<t.length();i++){
-            char ch=t.charAt(i);
-            mapt.put(ch,mapt.getOrDefault(ch,0)+1);
-        }
-        
-        
-        for(int i=0;i<t.length();i++){
-            char ch=t.charAt(i);
-            
-            if(maps.containsKey(ch)){
-               if(maps.get(ch)<mapt.get(ch)){
-                   return ch;
-               }
-            }
-            else{
-            if(maps.get(ch)==null){
-                return ch;
-            }
+            if(sa[i]!=ta[i]){
+                return ta[i];
             }
         }
-        return 0;
+        return ta[ta.length-1];
+        
     }
 }
