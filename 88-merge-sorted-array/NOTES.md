@@ -1,0 +1,1 @@
+two pointer approach, i,j,k, peeche se start karenge , bara hai to thik hai nums1[k] me nums1[i] nahi to j bahrenge, phir bacha hua k me j bhar denge
