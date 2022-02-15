@@ -1,29 +1,16 @@
 class Solution {
     public int findJudge(int n, int[][] trust) {
+        int dp[]=new int[n+1];
         
-        if(n==1) return n;
-        
-        HashSet<Integer>set=new HashSet<>();
-        HashMap<Integer,Integer>map=new HashMap<>();
-        
-        for(int arr[]:trust){
-            set.add(arr[0]);
+        for(int i=0;i<trust.length;i++){
+            dp[trust[i][0]]--;
+            dp[trust[i][1]]++;
+            
         }
         
-        for(int arr[]:trust){
-            map.put(arr[1],map.getOrDefault(arr[1],0)+1);
+        for(int i=1;i<dp.length;i++){
+            if(dp[i]==n-1) return i;
         }
-        
-       for(int k:map.keySet()){
-           if(set.contains(k)==false){
-               int f=map.get(k);
-               
-               if(f==n-1){
-                   return k;
-               }
-           }
-       }
         return -1;
-        
     }
 }
