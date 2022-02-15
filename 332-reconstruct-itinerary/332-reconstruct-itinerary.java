@@ -1,35 +1,27 @@
 class Solution {
-    
-    HashMap<String,PriorityQueue<String>>graph;
-    List<String>ans;
-    
     public List<String> findItinerary(List<List<String>> tickets) {
-        
-        graph= new HashMap<>();
-        ans=new ArrayList<>();
-        
-        
-        for(List<String> ticket:tickets){
-            PriorityQueue<String>temp=graph.getOrDefault(ticket.get(0),new PriorityQueue<>());
-            temp.add(ticket.get(1));
-            graph.put(ticket.get(0),temp);
+        HashMap<String, PriorityQueue<String>> hm = new HashMap<>();
+        for(int i =0; i <tickets.size(); i++){
+            String key   = tickets.get(i).get(0);
+            String value = tickets.get(i).get(1);
+            if(!hm.containsKey(key)){
+                PriorityQueue<String> temp = new PriorityQueue<>();
+                hm.put(key, temp);
+            }
+            hm.get(key).add(value);
         }
         
-        dfs("JFK");
-        return ans;
-        
-        
-        
+        LinkedList<String> res = new LinkedList<>();
+        dfs("JFK", hm, res);
+        return res;
     }
-    
-    void dfs(String src){
-        PriorityQueue<String>nbrs=graph.get(src);
-        
-        
-        while(nbrs!=null && nbrs.size()>0){
-            String nbr=nbrs.remove();
-            dfs(nbr);
+
+    public void dfs(String dep, Map<String, PriorityQueue<String>> hm, LinkedList<String> res) {
+        PriorityQueue<String> arrivals = hm.get(dep);
+        while (arrivals != null && !arrivals.isEmpty()) {
+            dfs(arrivals.poll(), hm, res);
         }
-        ans.add(0,src);
+
+        res.addFirst(dep);
     }
 }
