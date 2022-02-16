@@ -1,0 +1,1 @@
+moore voting algo hi lekin isme 2 val banega 2 count banega , phir dono potential candiate ka freq count kar leneg ki n/3 se baa hai to ans me add kar denge
