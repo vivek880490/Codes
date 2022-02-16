@@ -1,31 +1,39 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
         
-        Map<Integer,Integer>map=new HashMap<>();
+        List<Integer>[]arr=new ArrayList[nums.length+1];
         
-        for(int i=0;i<nums.length;i++){
-            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+        HashMap<Integer,Integer>map=new HashMap<>();
+        
+        for(int i:nums){
+            map.put(i,map.getOrDefault(i,0)+1);
         }
         
         
-        Queue<Map.Entry<Integer,Integer>>q=new PriorityQueue<>((a,b)->(b.getValue()-a.getValue()));
-        
-        for(Map.Entry<Integer,Integer>entry:map.entrySet()){
-            q.add(entry);
+        for(int key:map.keySet()){
+            int val=map.get(key);
+            if(arr[val]==null){
+                arr[val]=new ArrayList<>();
+            }
+            arr[val].add(key);
         }
         
-        ArrayList<Integer>ans=new ArrayList<>();
+        int ans[]=new int[k];
         
-        while(ans.size()<k){
-            Map.Entry<Integer,Integer>entry=q.poll();
-            ans.add(entry.getKey());
-        }
-    
-         int res[]=new int[ans.size()];
-        for(int i=0;i<ans.size();i++){
-            res[i]=ans.get(i);
-        }
-        return res;
+        int count=0;
         
+        for(int i=arr.length-1;i>=0;i--){
+            if(arr[i]!=null){
+                
+                List<Integer>al=arr[i];
+                
+                for(int j=0;j<al.size();j++){
+                    ans[count]=al.get(j);
+                    count++;
+                }
+                if(count==k) break;
+            }
+        }
+        return ans;
     }
 }
