@@ -1,0 +1,2 @@
+peeche se iterate karke first index find kareneg jahan decreasing hone lage sequence,
+phir peeche se iterate karke decresing wala point se bara number doondhenge , phir dono ko swap kar denge , aur pura sequence i+1(jaha pahli baar decreasing mila tha) usko reverse kar denge
