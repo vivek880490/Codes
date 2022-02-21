@@ -1,1 +1,1 @@
-​
+cases ko kam karna hai to ek l,h pointer area calculate karlo , phir jo kam hai usko ghata do kyunki 3 hi case to possible hai ki ya to height badhega, ya heigth badhega ya barabar aur teeno case me area to kam hi hoga na kyuki wdth to kam ho ja raha isisliye e sab check hi nahi karenge
