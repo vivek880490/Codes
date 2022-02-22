@@ -1,1 +1,1 @@
-​
+har index par jump nikalenge(index+value) aur max jump ka max lenge agar max>=n-1 to true and to false, aur ek conition max>=i
