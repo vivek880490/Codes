@@ -1,13 +1,15 @@
 class Solution {
     public boolean canJump(int[] nums) {
-        int n=nums.length;
-        if(nums.length==1) return true;
-        int max=0;
         
-        for(int i=0;i<n-1 && max>=i;i++){
-            max=Math.max(max,i+nums[i]);
-            if(max>=n-1) return true;
+        int n=nums.length;
+        int reachability=0;
+        for(int i=0;i<n;i++){
+            if(reachability<i) return false;
+            
+            reachability=Math.max(reachability,i+nums[i]);
+            
         }
-        return false;
+        return true;
+        
     }
 }
