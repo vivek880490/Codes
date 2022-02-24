@@ -11,30 +11,56 @@
 class Solution {
     public ListNode sortList(ListNode head) {
         
-        ArrayList<Integer>al=new ArrayList<>();
+        if(head==null || head.next==null) return head;
         
-        ListNode temp=head;
-        while(temp!=null){
-            al.add(temp.val);
-            temp=temp.next;
+        ListNode midd=mid(head);
+        
+        ListNode nhead=midd.next;
+        midd.next=null;
+        
+        return (merge(sortList(head),sortList(nhead)));
+        
+    }
+    
+    ListNode mid(ListNode head){
+        if(head==null || head.next==null) return head;
+        ListNode slow=head;
+        ListNode fast=head;
+        
+        while(fast.next!=null && fast.next.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
         }
+     
+        return slow;
+    }
+    
+    
+    ListNode merge(ListNode l1,ListNode l2){
+        if(l1==null || l2==null) return l1==null?l2:l1;
         
-        Collections.sort(al);
+        ListNode temp1=l1;
+        ListNode temp2=l2;
         
         ListNode dummy=new ListNode(-1);
         
         ListNode cur=dummy;
-       
-        for(int i=0;i<al.size();i++){
-            ListNode tem=new ListNode(al.get(i));
-             cur.next=tem;
-             cur=cur.next;
-          
+        
+        while(temp1!=null && temp2!=null){
+            if(temp1.val<temp2.val){
+                cur.next=temp1;
+                temp1=temp1.next;
+            }
+            else if(temp1.val>=temp2.val){
+                cur.next=temp2;
+                temp2=temp2.next;
+            }
+            cur=cur.next;
+            
         }
-           
         
-        
+        cur.next=temp1==null?temp2:temp1;
         return dummy.next;
-        
+
     }
 }
