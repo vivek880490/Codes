@@ -10,10 +10,8 @@ class Solution {
             Integer num1=(i<a.length?Integer.parseInt(a[i]):0);
             Integer num2=i<b.length?Integer.parseInt(b[i]):0;
             
-            int compare = num1.compareTo(num2);
-            if(compare!=0){
-                return compare;
-            }
+           if(num1<num2) return -1;
+            else if(num1>num2) return 1;
         }
         
         return 0;
