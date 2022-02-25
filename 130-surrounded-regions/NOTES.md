@@ -1,0 +1,1 @@
+pata hai ka karna hai boundary par traverse karo O milta hai to uske sate hue jitna O hai usko * bana do dfs laga ke , phir pura grid me trverse karo jahha O hai X bana do aur * hai usko O bana do
