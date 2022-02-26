@@ -1,1 +1,1 @@
-​
+jaise array me karte hain hasmap leke , hasmap me agar current sum - target para hai to uska freq add kardo count  me nahi to daal do cursum-tar aur left right ko call lagao aur hasmap me nikal do backtrack kar rahe isisliye
