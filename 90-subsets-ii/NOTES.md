@@ -1,0 +1,1 @@
+loop laga ke call calagtyenge aur check kareneg agar peechla element se smaae hai to continue kar dnege
