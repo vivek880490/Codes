@@ -23,16 +23,19 @@ class Solution {
         
         
     }
-   
+    int dirs[][]={{0,-1},{-1,0},{0,1},{1,0}};
     void dfs(int grid[][],int r,int c){
-        if(r<0 || c<0 || r>=grid.length || c>=grid[0].length || grid[r][c]==0){
-                return;
-            }
         grid[r][c]=0;
-        dfs(grid,r+1,c);
-        dfs(grid,r-1,c);
-        dfs(grid,r,c+1);
-        dfs(grid,r,c-1);
+        for(int i=0;i<4;i++){
+            int rd=r+dirs[i][0];
+            int cd=c+dirs[i][1];
+            
+            if(rd<0 || cd<0 || rd>=grid.length || cd>=grid[0].length || grid[rd][cd]==0){
+                continue;
+            }
+            grid[rd][cd]=0;
+            dfs(grid,rd,cd);
+        }
         
     }
 }
