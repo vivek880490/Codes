@@ -1,0 +1,1 @@
+left child 2*index+1,  par hota hai aur right child 2*index+2 , *max width right child ka index - left child ka index+1 ho jayega, bfs lagayenge Pair  ka jisme node index hoga*
