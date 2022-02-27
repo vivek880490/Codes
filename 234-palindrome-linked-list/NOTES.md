@@ -1,0 +1,1 @@
+mid find karo, phir waha se connection ura do, aur mid.next new head ban jayega , phir newhead ko reverse me pass karke node ko reverse kardo phir head, newhead par pointer laga ke dono ko compare karlo
