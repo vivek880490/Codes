@@ -24,19 +24,19 @@ class Solution {
         
         while(!q.isEmpty()){
             int size=q.size();
-            Pair<TreeNode,Integer>first=q.peek();
-            Pair<TreeNode,Integer>cur=null;
+            
+            int lm = q.peek().getValue();
+            int rm = q.peek().getValue();
             
             for(int i=0;i<size;i++){
-                cur=q.remove();
-                TreeNode node=cur.getKey();
-                int index=cur.getValue();
-                
-                if(node.left!=null) q.add(new Pair(node.left,2*index));
-                if(node.right!=null) q.add(new Pair(node.right,2*index+1));
+                Pair<TreeNode,Integer>cur=q.remove();
+                TreeNode node = cur.getKey();
+                rm=cur.getValue();
+                if(node.left!=null) q.add(new Pair(node.left,2*rm));
+                if(node.right!=null) q.add(new Pair(node.right,2*rm+1));
                 
             }
-            w=Math.max(w,cur.getValue()-first.getValue()+1);
+            w=Math.max(w,rm-lm+1);
         }
         return w;
     }
