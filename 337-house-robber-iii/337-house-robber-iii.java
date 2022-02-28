@@ -15,23 +15,26 @@
  */
 class Solution {
     public int rob(TreeNode root) {
-        int [] ans=solve(root);
+        int arr[]=solve(root);
         
-        return Math.max(ans[0],ans[1]);
+       
+        
+        return Math.max(arr[0],arr[1]);
+        
         
     }
+   
     
     int [] solve(TreeNode root){
         if(root==null) return new int[2];
-        
-        int left[]=solve(root.left);
+         int left[]=solve(root.left);
         int right[]=solve(root.right);
+         int nums[]=new int[2];
+        nums[0] =  left[1]+root.val+right[1];
         
-        int me[]=new int[2];
-        //with roberry
-        me[0] = left[1]+ root.val + right[1];
-        //without robbery
-        me[1] = Math.max(left[0],left[1])+Math.max(right[0],right[1]);
-        return me;
-        }
+        nums[1]= Math.max(left[0],left[1])+Math.max(right[0],right[1]);
+        
+        return nums;
+    }
+
 }
