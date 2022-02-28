@@ -1,0 +1,1 @@
+same hi hai baaki subset, permutation jaisa, map[][] rakhne ke liye abc ye sab, recursion lagayenge start point passs kareneg , ek stringbuilder bhi pass karenge, sabse pahle digitsme num nikal lenge , phir map par loop laga ke map[num[i] ko append kar denge sb me phir start+1 ko call laga denge, aur phir sb me remove kar denge last apeended
