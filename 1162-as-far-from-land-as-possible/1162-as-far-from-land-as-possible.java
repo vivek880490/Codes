@@ -1,36 +1,41 @@
 class Solution {
-    int[][] directions = new int[][] {{-1, 0},{1,0},{0,-1},{0,1}};
     public int maxDistance(int[][] grid) {
-        if(grid == null || grid.length == 0 || grid[0].length == 0)return -1;
-        boolean[][] visited = new boolean[grid.length][grid[0].length];
-        Queue<int[]> queue = new ArrayDeque<>();
-        for(int i = 0 ; i < grid.length ; i++) {
-            for(int j = 0 ; j < grid[0].length ; j++) {
-                if(grid[i][j] == 1) {
-                    queue.offer(new int[]{i,j});
-                    visited[i][j] = true;
+        Queue<int []>q=new LinkedList<>();
+        int count=0;
+        for(int i=0;i<grid.length;i++){
+            for(int j=0;j<grid[0].length;j++){
+                if(grid[i][j]==1){
+                    count++;
+                    q.add(new int []{i,j});
                 }
             }
         }
-        int level = -1;
-        while(!queue.isEmpty()) {
-            int size = queue.size();
-            for(int i = 0 ; i < size ; i++) {
-                int[] start = queue.poll();
-                int x = start[0];
-                int y = start[1];
-                for(int[] dir : directions) {
-                    int newX = x + dir[0];
-                    int newY = y + dir[1];
-                    if(newX >= 0 && newX < grid.length && newY >= 0 && newY < grid[0].length 
-                       && !visited[newX][newY] && grid[newX][newY] == 0) {
-                        visited[newX][newY] = true;
-                        queue.offer(new int[]{newX, newY});
-                    }
-                }
-            }
+        // ek bhi 1 nahi hai ya sara 1 hai tab nearest distance kya hi hoga
+        if(count==0 || count==grid.length*grid[0].length) return -1;
+        
+        int level=-1;
+        int dirs[][]={{-1,0},{0,-1},{1,0},{0,1}};
+        
+        while(q.size()>0){
+            int size=q.size();
             level++;
+            
+            while(size-->0){
+                // poll first element to run bfs
+                int rem[]=q.poll();
+                
+                for(int i=0;i<4;i++){
+                    int rd=rem[0]+dirs[i][0];
+                    int cd=rem[1]+dirs[i][1];
+                    
+                    if(rd<0 || cd<0 || rd>=grid.length || cd>=grid[0].length || grid[rd][cd]==1) continue;
+                    
+                    q.add(new int[]{rd,cd});
+                    grid[rd][cd]=1;
+                }
+                
+            }
         }
-        return level <= 0 ? -1 : level;
+        return level;
     }
 }
