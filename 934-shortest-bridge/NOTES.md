@@ -1,1 +1,1 @@
-​
+dfs laga ke sab 1 ko add kardo, matlb jo connected hai u sab ko, phir bfs lagao aur check karo vis hai aur 1 mil gya to e doosra component ka 1 hoga to wahi se return level nahi to q me add kardo
