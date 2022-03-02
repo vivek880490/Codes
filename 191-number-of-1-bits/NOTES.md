@@ -1,0 +1,1 @@
+rmsb bit nikal lo n&-n se . n-rbsb coutn++
