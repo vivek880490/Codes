@@ -1,26 +1,23 @@
 class Solution {
     public boolean isSubsequence(String s, String t) {
+        if(s.isEmpty()) return true;
+        if((s==null) && t == null) return true;
+        if(s==null || t == null) return false;
+        return solve(0,0,s,t);
+        
+    }
     
-        
-        if(s.length()>t.length()) return false;
-        
-        int i=0;
-        int j=0;
-        StringBuilder sb=new StringBuilder();
-        while(i<s.length() && j<t.length()){
-            
-            if(s.charAt(i)==(t.charAt(j))){
-                sb.append(s.charAt(i));
-                i++;
-                j++;
-                
-            }
-            else{
-                j++;
-            }
-        }
-        System.out.println(i+" "+j+" "+sb.toString());
+    boolean solve(int i,int j,String s,String t){
         if(i==s.length()) return true;
-        return false;
+        
+        if(i==s.length() || j==t.length()) return false;
+        
+        if(s.charAt(i)==t.charAt(j))
+            return  solve(i+1,j+1,s,t);
+        
+        else
+            return solve(i,j+1,s,t);
+        
+    
     }
 }
