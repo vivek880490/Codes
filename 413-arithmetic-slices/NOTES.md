@@ -1,0 +1,1 @@
+dp banao aur normal nums[i]-nums[i-1]==nums[i-1]==nums[i-2] to dp me dp[i-1]+1 kardo kit jitna abhi tak mila use ek jyada aur ans me add karde har baar dp[i] ko
