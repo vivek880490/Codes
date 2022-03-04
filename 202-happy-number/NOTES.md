@@ -1,0 +1,1 @@
+slow fast pointer ka use karn hai
