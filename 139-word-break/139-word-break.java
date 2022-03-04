@@ -1,21 +1,22 @@
 class Solution {
-     Map<String,Boolean>map=new HashMap<>();
-    public boolean wordBreak(String s, List<String> word) {
+    HashMap<String,Boolean>map=new HashMap<>();
+    public boolean wordBreak(String s, List<String> wordDict) {
         
-        // recursion se tle isiliye memoization kar denge hashmap ka use karke
         
-       
+        if(wordDict.contains(s)) return true;
+        if(map.containsKey(s)){
+            return map.get(s);
+        }
         
-        if(word.contains(s)) return true;
-        if(map.containsKey(s)) return map.get(s);
-        for(int i=1;i<=s.length();i++){
+        for(int i=1;i<s.length();i++){
             
-            String left=s.substring(0,i);
+            String left = s.substring(0,i);
             
-            if(word.contains(left) && wordBreak(s.substring(i),word)) {
+            if(wordDict.contains(left) && wordBreak(s.substring(i),wordDict)){
                 map.put(s,true);
                 return true;
             }
+            
         }
         map.put(s,false);
         return false;
