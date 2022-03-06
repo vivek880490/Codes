@@ -1,0 +1,1 @@
+if(nums[j])==0 j++; else swap i and j
