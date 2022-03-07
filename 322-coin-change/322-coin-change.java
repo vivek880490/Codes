@@ -13,11 +13,12 @@ class Solution {
                 else if(i==0){
                     dp[i][j]=Integer.MAX_VALUE-1;
                 }
-                else if(coins[i-1]>j){
-                    dp[i][j]=dp[i-1][j];
+                else if(coins[i-1]<=j){
+                    dp[i][j]=Math.min(1+dp[i][j-coins[i-1]],dp[i-1][j]);
                 }
                 else{
-                    dp[i][j]=Math.min(1+dp[i][j-coins[i-1]],dp[i-1][j]);
+                    
+                    dp[i][j]=dp[i-1][j];
                 }
             }
         }
