@@ -1,1 +1,1 @@
-dummy node banano , l1,l2 bannao dodno par iterate karo, dono me jo chota hai uspar dummy point karwao, phir usko aage badhao, dummy ko aage badhao , aur last me jo bach gya uspe dummy ka next point karwa do
+​
