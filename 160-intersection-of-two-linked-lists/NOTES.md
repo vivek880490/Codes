@@ -1,2 +1,3 @@
 1. hasset ka use karke to aram se ban jayega store karlo node ko present hai to return kardo
-2.  pointer ka use karke,
+2.  pointer ka use karke, do pinter rakho dono par, while(l1!=l2) agar next null nahi hai to aage badhao , agar null hai usko dusre ke head par point karwa do. jo null pahuch jaeyag usko doosre ke head par bhej denge , return l1
+3.  cycle bana ke ek lst ka tail ko doosre ke gead par atch par denge phir ye ek cyccle jaisa same question ho gya return node which cause cycle, phir unlink bhi kar dena tail ko
