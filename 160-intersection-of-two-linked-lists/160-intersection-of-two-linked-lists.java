@@ -11,28 +11,49 @@
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-         
-        if(headA == null) return headB;
-        if(headB == null) return headA;
         
-        ListNode l1 = headA;
-        ListNode l2 = headB;
+        if(headA == null || headB == null) return null;
         
-        while(l1!=l2){
-            if(l1!=null){
-                l1=l1.next;
-            }
-            else{
-                l1=headB;
-            }
-            if(l2!=null){
-                l2=l2.next;
-            }
-            else{
-                l2=headA;
-            }
+        ListNode tail = headA;
+        
+        while(tail.next != null){
+            tail = tail.next;
         }
-        return l1;
         
+        tail.next = headB;
+        
+        ListNode ans = cycle(headA);
+        
+        tail.next = null;
+        
+        return ans;
+    }
+    
+    ListNode cycle(ListNode head){
+        if(head == null || head.next == null){
+            return null;
+        }
+        
+        ListNode slow = head; 
+        ListNode fast = head;
+        
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+            
+            if(slow == fast ) break;
+            
+        }
+        
+        if(slow != fast) return null;
+        
+        slow = head;
+        fast = fast;
+        
+        while(slow != fast){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
     }
 }
