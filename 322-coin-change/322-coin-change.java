@@ -22,12 +22,7 @@ class Solution {
                 }
             }
         }
-        if(dp[n][amount]==Integer.MAX_VALUE-1){
-            return -1;
-        }
-        else{
-            return dp[n][amount];
-        }
         
+        return dp[n][amount]==Integer.MAX_VALUE-1?-1:dp[n][amount];
     }
 }
