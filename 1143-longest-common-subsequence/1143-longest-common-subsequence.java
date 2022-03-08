@@ -4,27 +4,26 @@ class Solution {
         int n = text1.length();
         int m = text2.length();
         
-        Integer qb[][] = new Integer[n+1][m+1];
+        int qb[][] = new int[n+1][m+1];
         
-        return solve(text1, text2, n, m,qb);
-    }
-    
-    int solve(String text1, String text2, int n, int m,Integer qb[][]){
-        
-        if(n==0 || m==0 ) return 0;
-        
-        if(qb[n-1][m-1] != null) return qb[n-1][m-1];
-        
-        if(text1.charAt(n-1) == text2.charAt(m-1)){
-            qb[n-1][m-1] = 1 + solve(text1, text2, n-1, m-1,qb);
+        for(int i=1; i<qb.length; i++){
+            
+            for(int j=1; j<qb[0].length; j++){
+                
+                if(text1.charAt(i-1) == text2.charAt(j-1))
+                {
+                 qb[i][j] = 1 + qb[i-1][j-1];
+             }
+                else{
+                    
+                    qb[i][j] = Math.max(qb[i-1][j],qb[i][j-1]);
+                    
+                }
+                
+            }
         }
         
-        else{
-            qb[n-1][m-1] = Math.max(solve(text1, text2, n-1,m,qb),solve(text1, text2,n,m-1,qb));
-        }
-        
-        return qb[n-1][m-1];
-        
+        return qb[n] [m];
     }
     
 }
