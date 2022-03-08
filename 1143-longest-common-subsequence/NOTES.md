@@ -1,1 +1,3 @@
+dp table [][] len+1 size ka banayenge, peeche second last row,col se bharna start karenge, agar ch same to 1+neeche diagonal., else max of bottom ya right
+​
 ​
