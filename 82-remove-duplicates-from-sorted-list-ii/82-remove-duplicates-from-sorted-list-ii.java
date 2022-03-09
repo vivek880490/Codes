@@ -11,35 +11,35 @@
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         
-        if(head==null || head.next==null) return head;
+        if(head == null || head.next == null) return head;
         
-        ListNode d=new ListNode(-1);
+        ListNode dummy = new ListNode(101);
         
-        ListNode itr=d;
-        itr.next=head;
+        ListNode itr = dummy;
         
-        ListNode cur=head.next;
+        itr.next = head;
         
-        while(cur!=null){
-            
-            boolean flag=false;
-            while(cur!=null && itr.next.val==cur.val){
-                cur=cur.next;
-                 flag=true;
+        ListNode cur = head.next;
+        
+        while(cur != null){
+            boolean flag = false;
+            while(cur != null && itr.next.val == cur.val){
+                cur = cur.next;
+                flag = true;
             }
             
-            if(flag==true){
-                itr.next=cur;
+            if(flag == true){
+            itr.next = cur;
             }
             else{
-                itr=itr.next;
+                itr = itr.next;
             }
-            
-            if(cur!=null) cur=cur.next;
-            
-            
+             if(cur != null) cur = cur.next;
         }
-        return d.next;
+        
+       
+        
+        return dummy.next;
         
     }
 }
