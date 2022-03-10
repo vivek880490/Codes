@@ -1,1 +1,2 @@
-slow fast pointer ka use karn hai
+slow fast pointer ka use karn hai, sqaure calucltae karne ke liye number ko bhje do, phir slow ko n par rakho fast ko solve(n) , jab tak slow != fast, slow=solve(slow), fast= solve(solve(fast))
+retun slow ==1
