@@ -7,21 +7,19 @@ class Solution {
         while(slow != fast){
             slow = solve(slow);
             fast = solve(solve(fast));
-            
         }
         return slow==1;
         
-        
     }
     
+    
     int solve(int n){
-        int ans = 0;
-        while(n!=0){
-            int digit = n%10;
-            ans+= digit*digit;
-            n=n/10;
-            
+        int sum = 0;
+        while(n>0){
+        int digit = n%10;
+        sum+=digit*digit;
+        n=n/10;
         }
-        return ans;
+        return sum;
     }
 }
