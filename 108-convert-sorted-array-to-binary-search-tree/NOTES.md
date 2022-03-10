@@ -1,1 +1,1 @@
-​
+mid ko root banao, s,mid-1 left child, mid+1-h right child banao
