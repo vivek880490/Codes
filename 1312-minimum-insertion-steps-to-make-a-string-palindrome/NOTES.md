@@ -1,1 +1,1 @@
-​
+same as minimum number of deletion to make string plaindrome, just find the lcs of string and reverse of string and string length - lcs will be the ans
