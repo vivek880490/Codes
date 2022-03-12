@@ -1,0 +1,1 @@
+bfs lagaye hain queue bna ke simple queue array ka bnanayenge aur usme rakhenge start abhi tak length, check karo ki aa gaye hain nahi to 8 dirction me c all lagao aur len+1 karke daalna agli baar queue me
