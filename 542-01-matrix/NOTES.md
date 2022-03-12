@@ -1,1 +1,1 @@
-​
+bfs, agar 0 mila to q.me add kardo i,j, nahi to mat[i][j]=-1; , q se poll karo 4 direction me dekho aur  mat[rd][cd]=mat[rem[0]][rem[1]]+1; and add to the queue
