@@ -1,1 +1,1 @@
-​
+https://leetcode.com/problems/valid-parentheses/discuss/9178/Short-java-solution
