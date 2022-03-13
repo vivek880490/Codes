@@ -6,19 +6,25 @@ class Solution {
         for(int i=0; i<s.length(); i++){
             char ch = s.charAt(i);
             
-            if(ch == '('){
-                st.push(')');
+            if(ch=='(' || ch=='[' || ch=='{'){
+                st.push(ch);
             }
-           else if(ch == '{'){
-                st.push('}');
+             else if(ch == ')' &&st.size() >0 && st.peek() == '('   ){
+                        st.pop();   
+                }
+            else if(ch == ']' &&st.size() >0 && st.peek() == '['   ){
+                        st.pop();   
+                }
+            else if(ch == '}' &&st.size() >0 && st.peek() == '{'   ){
+                        st.pop();   
+                }
+               
+            else{
+                return false;
             }
-            else if(ch == '['){
-                st.push(']');
+                
             }
-            
-            else if(st.size() == 0 || st.pop() != ch) return false;
-            
-        }
+        
         
         return (st.size()==0);
         
