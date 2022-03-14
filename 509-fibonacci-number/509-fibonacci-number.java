@@ -4,16 +4,21 @@ class Solution {
         if(n == 0) return 0;
         if(n == 1) return 1;
         
-        return solve(n);
+        Integer qb[] = new Integer[n+1];
+        
+        return solve(n,qb);
     }
     
-    int solve(int n){
+    int solve(int n, Integer qb[]){
         
         if(n == 0) return 0;
         if(n == 1) return 1;
         
-        int ans = fib(n-1)+fib(n-2);
+        if(qb[n] != null) return qb[n];
         
-        return ans;
+        
+        int ans = solve(n-1,qb)+solve(n-2,qb);
+        
+        return qb[n] = ans;
     }
 }
