@@ -1,48 +1,36 @@
 class Solution {
     public String minRemoveToMakeValid(String s) {
         
-        char ch[]=s.toCharArray();
-        int count=0;
-        for(int i=0;i<s.length();i++){
-        char c=s.charAt(i);
         
-            if(c=='('){
-                count++;
+        char ch [] = s.toCharArray();
+        
+        Stack<Integer> st = new Stack<>();
+        
+        for(int i=0; i<s.length(); i++){
+            char c = s.charAt(i);
+            
+            if(c == '('){
+                st.push(i);
             }
-            else if(c==')'){
-                if(count>0){
-                    count--;
+            else if(c == ')'){
+                if(st.size() > 0){
+                    st.pop();
                 }
                 else{
-                    ch[i]='.';
+                    ch[i] = '.';
                 }
             }
         }
         
-        count=0;
-        for(int i=s.length()-1;i>=0;i--){
-            char c=s.charAt(i);
-            if(c==')'){
-                count++;
-            }
-            else if(c=='('){
-                
-                if(count>0){
-                    count--;
-                }
-                else{
-                    ch[i]='.';
-                }
-                
-            }
+        while(st.size() > 0){
+            ch[st.pop()] = '.';
         }
         
+        StringBuilder sb = new StringBuilder();
         
-        StringBuilder sb=new StringBuilder();
-        
-        for(char c:ch){
-            if(c!='.'){
-                sb.append(c);
+        for(char x:ch){
+            if(x!='.'){
+            sb.append(x);
             }
         }
         
