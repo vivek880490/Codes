@@ -1,1 +1,1 @@
-dp ka quetion  hai peeche se fill karna start karenge , waha se jahan jahan jaa sakte hain wahan jaakr dekhenge min kon hai usko +1 karke dp me daal denge , min ko min value se inititate karo agar wahi rah gaya min to wahi daal do dp me basically null jaisa hai jaha se raasta nahi hai
+​
