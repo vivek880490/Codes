@@ -1,0 +1,2 @@
+hasmap ban ake freqncy store karlo, agar abhi wala pahle se chota hai to, check karo iska frequncy bacha hai to isko baad me bhi le sakte hain.
+**mere baad aaya hoga to baad me hi aa jayega bara wala**
