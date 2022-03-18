@@ -1,41 +1,42 @@
 class Solution {
     public String longestPalindrome(String s) {
+        String s1=s;
+        StringBuilder sb = new StringBuilder(s);
+        sb.reverse();
+        s = sb.toString();
+    
         String ans="";
-        boolean dp[][]=new boolean[s.length()][s.length()];
-        // for gap that is diagnol
-        for(int g=0;g<s.length();g++){
-            for(int i = 0 , j = g ; j<s.length() ;i++,j++){
-                // one length string is always palindrome
-                if(g==0){
-                    dp[i][j]=true;
+       int n=s.length();
+        int res=0;
+      int dp[][] = new int[n+1][n+1];
+        for(int i=0;i<=n;i++){
+            for(int j=0;j<=n;j++){
+                if(i==0||j==0)
+                    dp[i][j]=0;
+               else if(s.charAt(i-1)==s1.charAt(j-1)){
+                    dp[i][j]=dp[i-1][j-1]+1;
+                   
+                   
                 }
-                // two length is palindrome of both character are same
-                else if(g==1){
-                    if(s.charAt(i)==s.charAt(j)){
-                        dp[i][j] = true;
-                    }
-                    else{
-                        dp[i][j] = false;
-                    }
-                }
-                else{
-                    // check if extreme means first and last character same same and middel are also palindrome
-                    if(s.charAt(i)==s.charAt(j) && dp[i+1][j-1]==true){
-                        dp[i][j]  = true;
-                    }
-                    else{
-                        dp[i][j] = false;
-                    }
-                    
-                }
-                // at every gap we will check for the len of valid substring that are plaindrome
-                if(dp[i][j]==true){
-                    ans = s.substring(i,j+1);
-                }
+                else
+                    dp[i][j]=0;
                 
+                 if(dp[i][j]>res)
+                    {
+                        String temp=s.substring(i-dp[i][j],i-dp[i][j]+dp[i][j]);
+                        
+                     StringBuilder sb1 = new StringBuilder(temp);
+                     sb1.reverse();
+                     String rev = sb1.toString();
+                        if(temp.equals(rev)){    //check if common substring is palindromic or not
+                             ans=temp;
+                        res=dp[i][j];
+                        }
+                           
+                    }
             }
+            
         }
-        
         return ans;
     }
 }
