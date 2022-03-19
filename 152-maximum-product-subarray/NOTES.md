@@ -1,0 +1,1 @@
+do pointer left and right , ek aage se mult nikalte aayega ek peeche kabhi bhi dono me se koi 0 ho jaye to 1 se start kardo, max lete jao har baar
