@@ -1,1 +1,1 @@
-​
+buying day ko minimize karna hai, profit if sold today nikalo, total profit ko maximize karna hai
