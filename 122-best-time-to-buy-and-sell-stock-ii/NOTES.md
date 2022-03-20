@@ -1,0 +1,1 @@
+agar aaj price jayada hai to buying day ko aage badhao, nahi to profit collect karo , aur bd=sd=i; aur last me bhi profit collect karlo
