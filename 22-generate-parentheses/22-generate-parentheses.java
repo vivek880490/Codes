@@ -1,24 +1,37 @@
 class Solution {
     public List<String> generateParenthesis(int n) {
         
-        List<String>ans=new ArrayList<>();
+        List<String> res = new ArrayList<>();
         
-        solve(ans,n,"",0,0);
-        return ans;
+        int open = n;
+        int close = n;
+        String op = "";
+        
+        solve(open, close, op, res);
+        return res;
+        
     }
     
-    void solve(List<String>ans,int n,String res,int open,int close){
-        if(res.length()==2*n){
-            ans.add(res);
+    void solve(int open, int close, String op, List<String>al){
+        if(open == 0 && close == 0){
+            al.add(op);
             return;
         }
         
-        if(open<n)
-            solve(ans,n,res+"(",open+1,close);
-        
-        if(close<open)
-            solve(ans,n,res+")",open,close+1);
-        
+        if(open != 0){
+            String op1 = op;
+            op1 += "(";
+            
+            solve(open-1, close, op1, al);
+            
+        }
+        if(open < close){
+            String op2 = op;
+            op2 += ")";
+            
+            solve(open, close-1, op2, al);
+            return;
+        }
         
     }
 }
