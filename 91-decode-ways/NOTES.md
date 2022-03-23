@@ -1,1 +1,1 @@
-dp array banayeneg , dp[0]=1; loop lagayenge 1 se s.length tak, 4 chiz ho sakta hai ch(i) && ch(i-1) dono 0, first zero second nonzero, first non zero second zero ya dono non zero, us hisab consition laga ke answer banao
+​
