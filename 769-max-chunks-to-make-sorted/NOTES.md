@@ -1,0 +1,1 @@
+har elemnt ka mxm impact type dekhna hai
