@@ -1,1 +1,1 @@
-​
+reverse kar dnege dono list ko, phir sum kar denge
