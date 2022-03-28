@@ -10,15 +10,31 @@
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode t1 = reverse(l1);
+        ListNode t2 = reverse(l2);
+        ListNode rev = solve(t1, t2);
+        return reverse(rev);
+    }
+    
+    ListNode reverse(ListNode head){
+        ListNode cur = null;
+        ListNode temp = head;
         
-        // if(l1 == null) return l2;
-        // if(l2 == null) return l1;
+        while(temp != null){
+            ListNode next = temp.next;
+            
+            temp.next = cur;
+            
+            cur = temp;
+            temp = next;
+        }
+        return cur;
+    }
+    
+    public ListNode solve(ListNode l1, ListNode l2) {
         
-        ListNode r1 = reverse(l1);
-        ListNode r2 = reverse(l2);
-        
-        ListNode c1 = r1;
-        ListNode c2 = r2;
+        ListNode r1 = l1;
+        ListNode r2 = l2;
         
         ListNode dummy = new ListNode(-1);
         
@@ -26,44 +42,23 @@ class Solution {
         
         int carry = 0;
         
-        while(c1 != null || c2 != null || carry != 0){
+        while(r1 != null || r2 != null || carry != 0){
             
-            int sum = (c1 != null ? c1.val:0) + (c2 !=null ? c2.val:0) + carry;
+            int sum = carry + (r1 !=null?r1.val:0) + (r2 != null?r2.val:0);
             
-            int ld = sum % 10;
-            carry = sum / 10;
+            int rd = sum%10;
+            carry = sum/10;
             
-            itr.next = new ListNode(ld);
+            itr.next = new ListNode(rd);
             
             itr = itr.next;
             
-            if(c1 != null) c1 = c1.next;
-            if(c2 != null) c2 = c2.next;
+            if(r1 != null) r1 = r1.next;
+            if(r2 != null) r2 = r2.next;
             
         }
-        return reverse(dummy.next);
         
+        return dummy.next;
         
-    }
-    
-    ListNode reverse(ListNode head){
-        
-        //if(head == null || head.next == null) return head;
-        
-        ListNode cur = null;
-        
-        ListNode temp = head;
-        
-        while(temp != null){
-            
-            ListNode forw = temp.next;
-            
-            temp.next = cur;
-            
-            cur = temp;
-            temp = forw;
-        }
-        
-        return cur;
     }
 }
