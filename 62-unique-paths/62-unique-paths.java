@@ -1,20 +1,19 @@
 class Solution {
     public int uniquePaths(int m, int n) {
-        Integer qb[][]=new Integer[m+1][n+1];
-        return solve(0,0,m,n,qb);
+        Integer qb[][] = new Integer[m][n];
+        return solve(0,0,m-1,n-1,qb);
         
     }
-    int solve(int i,int j,int dr,int dc,Integer qb[][]){
-       
-        if(qb[i][j]!=null) return qb[i][j];
+    
+    int solve(int sr, int sc, int dr, int dc, Integer qb[][]){
+        if(sr > dr || sc > dc) return 0;
+        if(sr == dr && sc == dc) return 1;
         
-        if(i>=dr || j>=dc) return 0;
-         if(i==dr-1 && j==dc-1) return 1;
+        if(qb[sr][sc] != null) return qb[sr][sc];
         
+        int down = solve(sr+1, sc, dr, dc, qb);
+        int right = solve(sr, sc+1, dr, dc, qb);
         
-        int m1=solve(i+1,j,dr,dc,qb);
-        int m2=solve(i,j+1,dr,dc,qb);
-        qb[i][j]=m1+m2;
-        return qb[i][j];
+        return qb[sr][sc] = down+right;
     }
 }
