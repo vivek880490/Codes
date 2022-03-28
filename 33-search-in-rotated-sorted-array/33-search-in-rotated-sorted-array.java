@@ -5,9 +5,17 @@ class Solution {
         //if(n == 1 && nums[0]==target) return 0;
         
         int index = indexofminelemnt(nums);
+        int s1 = -1;
+        int s2 = -1;
         
-        int s1 = binarysearch(nums,0,index-1,target);
-        int s2 = binarysearch(nums, index, n-1, target);
+        if(target <= nums[n-1]){
+         s2 = binarysearch(nums, index, n-1, target);
+        }
+        else
+        {
+         s1 = binarysearch(nums,0,index-1,target);
+        }
+        
         
         return s1==-1?s2:s1;
        
