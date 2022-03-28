@@ -1,29 +1,24 @@
 class Solution {
-    public int uniquePathsWithObstacles(int[][] grid) {
+    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         
-        int m = grid.length;
-        int n = grid[0].length;
-        Integer qb[][] = new Integer[m+1][n+1];
+        int m = obstacleGrid.length;
+        int n = obstacleGrid[0].length;
         
-       return solve(grid,0,0,m-1,n-1,qb);
+        Integer qb[][] = new Integer[m][n];
         
+        return solve(obstacleGrid, 0, 0, m-1, n-1,qb);
     }
-    
-    int solve(int grid[][],int i,int j,int dr,int dc,Integer qb[][]){
-        if(i>=grid.length || j>=grid[0].length || grid[i][j]==1) return 0;
+    int solve(int[][] obstacleGrid, int sr, int sc, int dr, int dc,Integer qb[][]){
         
-        if(i==dr && j==dc) return 1;
+        if(sr > dr || sc > dc || obstacleGrid[sr][sc] == 1) return 0;
         
-        if(qb[i][j]!=null){
-            return qb[i][j];
-        }
+        if(sr == dr && sc == dc) return 1;
         
-        int s1 = solve(grid,i+1,j,dr,dc,qb);
-        int s2 = solve(grid,i,j+1,dr,dc,qb);
+        if(qb[sr][sc] != null) return qb[sr][sc];
         
-        return qb[i][j]=s1+s2;
+        int down = solve(obstacleGrid, sr+1, sc, dr, dc, qb);
+        int right = solve(obstacleGrid, sr, sc+1, dr, dc, qb);
         
-        
-        
+        return qb[sr][sc] = down+right;
     }
 }
