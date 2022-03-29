@@ -1,1 +1,1 @@
-​
+slow fast pointer jaise cycle detection in linked list 2, jaha slow fast milne ke baa , fast ko zero par le jaake phir se slow fast ko ek ek step chalate hain
