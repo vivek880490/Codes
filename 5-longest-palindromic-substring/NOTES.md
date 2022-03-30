@@ -1,3 +1,5 @@
+​
+​
 // for gap that is diagnol
 // one length string is always palindrome
 // two length is palindrome of both character are same
