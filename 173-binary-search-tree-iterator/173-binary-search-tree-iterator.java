@@ -21,7 +21,7 @@ class BSTIterator {
     public BSTIterator(TreeNode root) {
         solve(root);
     }
-    
+    // sara left ko add krdo
     void solve(TreeNode root){
         while(root!=null){
             st.push(root);
