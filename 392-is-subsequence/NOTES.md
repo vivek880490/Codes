@@ -1,1 +1,1 @@
-​
+simple lcs nikal lo,  return len==a.length()?true:false;
