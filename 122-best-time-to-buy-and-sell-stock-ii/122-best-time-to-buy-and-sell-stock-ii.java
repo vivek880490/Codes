@@ -10,24 +10,28 @@ class Solution {
         // else sell karenge to paisa aayega +prices[i], aur sell kar diye to next buy ka option khul jayega, sell nahi karenge to profit 0 aur next buy ka option band rahega
         
         int n = prices.length;
-        Integer qb[][] = new Integer[n][2];
+        Integer qb[][] = new Integer[n+1][2];
         
-        return solve(0, 1, n, prices, qb);
-    }
-    
-    int solve(int start, int buy, int end, int prices[], Integer qb[][]){
-        if(start == end) return 0;
-        int profit = 0;
+        qb[n][0] = 0;
+        qb[n][1] = 0;
         
-        if(qb[start][buy] != null) return qb[start][buy];
+        for(int start=n-1; start>=0; start--){
+            for(int buy=0; buy<=1; buy++){
+                int profit = 0;
+        
+       
         
         if(buy == 1){
-            profit = Math.max(-prices[start] + solve(start+1, 0, end, prices, qb), 0 + solve(start+1, 1, end, prices, qb));
+            profit = Math.max(-prices[start] + qb[start+1][0], 0 + qb[start+1][1]);
         }
         else{
-            profit = Math.max(prices[start] + solve(start+1, 1, end , prices, qb), 0 + solve(start+1, 0, end, prices, qb));
+            profit = Math.max(prices[start] + qb[start+1][1], 0 + qb[start+1][0]);
         }
         
-        return qb[start][buy] = profit;
+        qb[start][buy] = profit;
+            }
+        }
+    
+       return qb[0][1];
     }
 }
