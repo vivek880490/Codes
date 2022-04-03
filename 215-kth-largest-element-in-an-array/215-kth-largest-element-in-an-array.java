@@ -5,13 +5,13 @@ class Solution {
         
         for(int i=0;i<nums.length;i++){
             q.add(nums[i]);
+            if(q.size() > k){
+                q.poll();
+            }
+            
         }
-    int n=nums.length;
-        n=n-k+1;
-        int ans=0;
-        while(n-->0){
-           ans=q.poll();
-        }
-        return ans;
+        
+        return q.poll();
+   
     }
 }
