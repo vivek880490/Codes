@@ -1,1 +1,1 @@
-​
+x2+y2 formula ho jayega, to basically x2 - y2 ke basis par sort kar denge
