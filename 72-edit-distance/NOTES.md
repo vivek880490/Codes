@@ -1,1 +1,1 @@
-​
+easy hi hai bas pahechanna hai kya karna hai, first row aur first column me i,j ke jitna hi operation hoga, kyuki blank ko string ke barabar banana hai to sabko remove karna parega to jitna length ka string utna ka opertaion, aur ab baaki jagah,,** agar character same to digonally peeche wala jitna hi, kyuki dono se ek character kam hoga , else, Math.min of diagonaaly peeche , upar , ya left ka min + 1**
