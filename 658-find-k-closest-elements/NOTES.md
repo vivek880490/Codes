@@ -1,1 +1,1 @@
-​
+1. priority queue banayenge int[] ka usme element aur element ka difference with target, phir usko sort karo priorty queue me lambda ka use karke
