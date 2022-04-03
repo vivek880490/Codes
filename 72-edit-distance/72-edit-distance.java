@@ -1,27 +1,28 @@
 class Solution {
-    public int minDistance(String s1, String s2) {
+    public int minDistance(String word1, String word2) {
         
-        int dp[][] = new int [s1.length()+1][s2.length()+1];
+        int n = word1.length();
+        int m = word2.length();
+        Integer qb[][] = new Integer[n][m];
+        return solve(n-1, m-1, word1, word2,qb);
+    }
+    
+    int solve(int i, int j, String word1, String word2, Integer qb[][]){
+        //empty string se banane ke liye bacha hua string length jitna remove ya add karna hoga.
+        if(i < 0) return j+1;
+        if(j < 0) return i+1;
         
-        for(int i=0;i<dp.length;i++){
-            dp[i][0] = i;
+        if(qb[i][j] != null) return qb[i][j];
+        
+        if(word1.charAt(i) == word2.charAt(j)){
+            return qb[i][j] = solve(i-1, j-1, word1, word2,qb);
         }
-        for(int i=1; i<dp[0].length; i++){
-            dp[0][i] = i;
+        else{
+            int insert = solve(i-1, j, word1, word2,qb);
+            int delete = solve(i, j-1, word1, word2,qb);
+            int replace = solve(i-1, j-1, word1, word2,qb);
+            return qb[i][j] = 1 + Math.min(insert,Math.min(delete, replace));
         }
-        
-        for(int i=1;i<dp.length; i++){
-            for(int j=1; j<dp[0].length; j++){
-                if(s1.charAt(i-1) == s2.charAt(j-1)){
-                    dp[i][j] = dp[i-1][j-1];
-                }
-                else{
-                    dp[i][j] = Math.min(dp[i-1][j-1],Math.min(dp[i-1][j],dp[i][j-1]))+1;
-                }
-            }
-        }
-        return dp[dp.length-1][dp[0].length-1];
-        
         
     }
 }
