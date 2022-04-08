@@ -1,1 +1,1 @@
-dp array banayenge nums length ka, dp array ke kisi index par stor karenge us index par khatam hone wala longest increasing subsequencing ending at that nums[i]. i loop lagayenge har baar andar j loop lagayenge aur chexck karneg agar mere se pahle welement se jaake chipak sakte hain ki nahi , hamse chota hoga chipak sakte hain, aur isme  jiska length sabse jayada hoga usko count rakheneg aumse +1 kar ke apne me dal  lenge
+​
