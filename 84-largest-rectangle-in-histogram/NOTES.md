@@ -1,1 +1,1 @@
-​
+next smaller to left, next ssmaller to right,
