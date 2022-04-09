@@ -9,18 +9,16 @@ class Solution {
         while(l<=h){
             int mid = l+(h-l)/2;
             
-            if(target<nums[mid]){
+            if(target==nums[mid]){
+                return mid;
+            }
+            
+            else if(target < nums[mid]){
                 h=mid-1;
             }
             else if(target>nums[mid]){
                 l=mid+1;
-                if(l>h){
-                    break;
-                }
-            }
-            else if(target==nums[mid]){
-                return mid;
-            }
+        }
         }
         return l;
         
