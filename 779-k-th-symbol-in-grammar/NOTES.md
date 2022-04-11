@@ -1,1 +1,1 @@
-​
+mid = 2^n-1/2; agar k<=mid tab simple n-1, k ke liye call lagao, nahi to n-1,k-mid se jo aayega uska ulta return kar do
