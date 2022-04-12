@@ -1,20 +1,29 @@
 class Solution {
     public boolean checkIfExist(int[] arr) {
-        
-        HashSet<Integer> set = new HashSet<>();
+        Arrays.sort(arr);
         int zero = 0;
-        
         for(int x : arr){
             if(x == 0) zero++;
-            set.add(x);
-        }
-        if(zero >=2 ) return true;
-        
-        for(int x : set){
-            if(x!= 0 && set.contains(2*x)){
+            else if(x!=0 && (solve(x,arr) && solve(2*x,arr))){
                 return true;
             }
         }
+        
+        return zero >= 2;
+    }
+    
+    boolean solve(int x, int nums[]){
+        int l = 0;
+        int h = nums.length-1;
+        
+        while(l <= h){
+            int mid = l + (h-l)/2;
+            
+            if(nums[mid] == x) return true;
+            else if(nums[mid] < x) l = mid+1;
+            else if(nums[mid] > x) h = mid-1;
+        }
+        
         return false;
     }
 }
