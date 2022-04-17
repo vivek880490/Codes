@@ -4,7 +4,7 @@ class Solution {
         int i = 0;
         int j = 0;
         int sum = 0;
-        int t = k*threshold;
+        
         int count = 0;
         
         while(j < n){
@@ -14,7 +14,8 @@ class Solution {
                 j++;
             }
             else if(j-i+1 == k){
-                if(sum >= t){
+                int avg = sum/k;
+                if(avg >= threshold){
                     count++;
                 }
                 sum -= arr[i];
