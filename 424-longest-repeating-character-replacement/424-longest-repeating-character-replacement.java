@@ -9,8 +9,8 @@ class Solution {
         int ans = 0;
         while(j < s.length()){
             char ch = s.charAt(j);
-            
-            max = Math.max(max, ++freq[ch-'A']);
+            freq[ch-'A']++;
+            max = Math.max(max, freq[ch-'A']);
             
             while(j-i+1 - max > k){
                 freq[s.charAt(i)-'A']--;
