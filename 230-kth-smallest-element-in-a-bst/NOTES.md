@@ -1,1 +1,1 @@
-​
+inorder traversal gives node val in sorted order, so just keep a count and if count==k return that root.val
