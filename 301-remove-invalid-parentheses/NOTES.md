@@ -1,0 +1,1 @@
+first count karlo ki kitna extra hai st.size se
