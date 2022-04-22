@@ -21,10 +21,14 @@ class Solution {
     
     int solve(int mid, int m, int n){
         int count = 0 ;
-        
-        for(int i=1; i<=m; i++){
-            count+= Math.min(mid/i, n);
-        }
+        // find karke kitna element mid se chota hai
+        // for(int i=1; i<=m; i++){
+            //count+= Math.min(mid/i, n);
+        //}
+         for (int i=1, j=n; i<=m; i++){
+                while(j>=1 && i*j>mid) j--;
+                count+=j;
+            }
         return count;
     }
 }
