@@ -1,1 +1,1 @@
-​
+heaters array ko sort karke , har house ke liye just smaller , just learger nikal lo, phir uska diff ka min, usme jo max hoga wahi ans hoga
