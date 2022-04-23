@@ -14,26 +14,29 @@
  * }
  */
 class Solution {
-    int len = 0;
+    int ans = 0;
     public int longestUnivaluePath(TreeNode root) {
-        len = 0;
+        
         if(root == null) return 0;
         
-        solve(root, root.val);
-        
-        return len;
+        solve(root);
+        return ans;
     }
     
-    int solve(TreeNode root, int val){
+    int solve(TreeNode root){
         if(root == null) return 0;
         
-        int left = solve(root.left, root.val);
-        int right = solve(root.right, root.val);
+        int left = solve(root.left);
+        int right = solve(root.right);
         
-        len = Math.max(len, left + right);
+        if(root.left != null && root.left.val == root.val) left += 1;
+        else left = 0;
         
-        if(val == root.val) return Math.max(left, right)+1;
+        if(root.right != null && root.right.val == root.val) right += 1;
+        else right = 0;
         
-        return 0;
+        ans = Math.max(ans, left+right);
+        
+        return Math.max(left, right);
     }
 }
