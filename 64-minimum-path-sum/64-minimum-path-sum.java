@@ -2,26 +2,38 @@ class Solution {
     public int minPathSum(int[][] grid) {
         
         
-        int m = grid.length-1;
-        int n = grid[0].length-1;
-        Integer qb[][] = new Integer[m+1][n+1];
+       PriorityQueue<int[]> pq = new PriorityQueue<>((a,b)->(a[2]-b[2]));
+       
+       pq.add(new int[]{0,0,grid[0][0]});
+       
+       boolean vis[][] = new boolean[grid.length][grid[0].length];
+       
+       while(pq.size() > 0){
+           int rem[] = pq.poll();
+           
+           int x = rem[0];
+           int y = rem[1];
+           int w = rem[2];
+           
+           if(vis[x][y] == true) continue;
+           
+           if(x == grid.length-1 && y == grid[0].length-1) return w;
+           vis[x][y] = true;
+           
+           int dirs[][] = {{0,1},{1,0}};
+           
+           for(int k=0; k<2; k++){
+               
+               int dx = x + dirs[k][0];
+               int dy = y + dirs[k][1];
+               
+               if(dx >=0 && dy >=0 && dx < grid.length && dy < grid[0].length){
+                   pq.add(new int[]{dx,dy,w+grid[dx][dy]});
+               }
+           }
         
-        return solve(grid,m, n, qb);
-        
-    }
-    
-    int solve(int grid[][], int sr, int sc, Integer qb[][]){
-        if(sr == 0 && sc == 0) return grid[sr][sc];
-        
-        if(sr == 0) return grid[sr][sc] + solve(grid, sr, sc-1, qb);
-        
-        if(sc == 0) return grid[sr][sc] + solve(grid, sr-1, sc, qb);
-        
-        if(qb[sr][sc] != null) return qb[sr][sc];
-            
-        int down = grid[sr][sc]+Math.min(solve(grid, sr-1, sc, qb),solve(grid, sr, sc-1, qb));
-        
-        return qb[sr][sc] = down;
-        
+       }
+       
+       return -1;
     }
 }
