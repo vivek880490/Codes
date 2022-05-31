@@ -138,12 +138,13 @@ class Solution
         while(q.size() > 0){
             
             for(int i=0; i<q.size(); i++){
+                Node rem = q.poll();
+                al.add(rem.data);
+                if(rem.left != null) q.add(rem.left);
+                if(rem.right != null) q.add(rem.right);
                 
-                if(q.peek().left != null) q.add(q.peek().left);
-                if(q.peek().right != null) q.add(q.peek().right);
                 
                 
-                al.add(q.poll().data);
                 
                 
             }
